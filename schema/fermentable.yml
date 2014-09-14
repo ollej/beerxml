@@ -1,0 +1,12 @@
+---
+:type: :record
+:records:
+  :fermentable:
+    :xpath: FERMENTABLES/FERMENTBALE
+    :attributes:
+      - :name:
+          :required: true
+          :format: :string
+      - :amount:
+          :required: true
+          :format: :weight

@@ -1,0 +1,33 @@
+---
+:type: :record_set
+:record_sets:
+  :equipments:
+    :composed_of: :equipment
+    :xpath: EQUIPMENTS
+  :fermentables:
+    :composed_of: :fermentable
+    :xpath: FERMENTABLE
+  :hops:
+    :composed_of: :hop
+    :xpath: HOPS
+  :mashs:
+    :composed_of: :mash
+    :xpath: MASH
+  :mash_steps:
+    :composed_of: :mash_step
+    :xpath: MASH_STEPS
+  :miscs:
+    :composed_of: :misc
+    :xpath: MISCS
+  :recipes:
+    :composed_of: :recipe
+    :xpath: RECIPES
+  :styles:
+    :composed_of: :style
+    :xpath: STYLES
+  :waters:
+    :composed_of: :water
+    :xpath: WATERS
+  :yeasts:
+    :composed_of: :yeast
+    :xpath: YEASTS
