@@ -29,7 +29,11 @@ Gem::Specification.new do |spec|
                ]
 
   spec.test_files = [
-                      'spec/spec_helper.rb'
+                      'spec/spec_helper.rb',
+                      'spec/cases/beerxml/parser_spec.rb',
+                      'spec/cases/beerxml/schema_spec.rb',
+                      'spec/cases/beerxml/version_spec.rb',
+                      'spec/fixtures/recipes.xml'
                     ]
 
   spec.require_paths = ["lib"]
