@@ -1,9 +1,9 @@
 module NRB
   module BeerXML
 
-    autoload :RecordSet, 'nrb/beerxml/record_set'
-    autoload :Parser,    'nrb/beerxml/parser'
-    autoload :Schema,    'nrb/beerxml/schema'
+    autoload :RecordSet, 'beerxml/record_set'
+    autoload :Parser,    'beerxml/parser'
+    autoload :Schema,    'beerxml/schema'
 
     class << self
 
@@ -19,7 +19,7 @@ module NRB
     private
 
       def schema_dir
-        Dir.new( File.expand_path( File.join( File.dirname(__FILE__), '..', '..', 'schema' ) ) )
+        Dir.new( File.expand_path( File.join( File.dirname(__FILE__), '..', 'schema' ) ) )
       end
 
 

@@ -1,11 +1,11 @@
 # coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
+lib = File.expand_path(File.join('..','lib'), __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'nrb/beerxml/version'
+require 'beerxml/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "nrb-beerxml"
-  spec.version       = NRB::Beerxml::VERSION
+  spec.version       = NRB::BeerXML::VERSION
   spec.authors       = ["Dean Brundage"]
   spec.email         = ["dean@newrepublicbrewing.com"]
   spec.summary       = 'BeerXML parser'
@@ -16,11 +16,11 @@ Gem::Specification.new do |spec|
   spec.files = [
                  'README.md',
                  'LICENSE',
-                 'lib/nrb/beerxml.rb',
-                 'lib/nrb/beerxml/parser.rb',
-                 'lib/nrb/beerxml/record_set.rb',
-                 'lib/nrb/beerxml/schema.rb',
-                 'lib/nrb/beerxml/version.rb',
+                 'lib/beerxml.rb',
+                 'lib/beerxml/parser.rb',
+                 'lib/beerxml/record_set.rb',
+                 'lib/beerxml/schema.rb',
+                 'lib/beerxml/version.rb',
                  'schema/fermentable.yml',
                  'schema/hop.yml',
                  'schema/misc.yml',
@@ -37,8 +37,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'nokogiri'
   spec.add_dependency 'ruby-units'
 
-  spec.add_development_dependency "bundler", "~> 1.7"
-  spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "guard-rspec", "~> 2.0"
-  spec.add_development_dependency "rspec", "~> 2.0"
+  spec.add_development_dependency "bundler"
+  spec.add_development_dependency "rake"
+  spec.add_development_dependency "guard-rspec"
+  spec.add_development_dependency "rspec"
 end
