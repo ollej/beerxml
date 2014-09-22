@@ -5,9 +5,8 @@ module NRB
     class Parser
       attr_reader :reader
 
-      def initialize(reader: Nokogiri::XML, schema: BeerXML.schema)
+      def initialize(reader: Nokogiri::XML)
         @reader = reader
-        @schema = schema
       end
 
 
