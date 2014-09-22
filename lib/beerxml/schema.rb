@@ -40,6 +40,7 @@ module NRB
 
 
       def load_schema(stream_loader: YAML)
+        raise RuntimeError.new("No schema directory") unless @schema_dir
         @schema = { }
         @schema_dir.each do |file|
           next unless file =~ /\.yml$/

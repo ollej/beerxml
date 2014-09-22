@@ -4,11 +4,12 @@ module NRB
 
       class UnknownIdentifierError < RuntimeError; end
 
-      attr_reader :identifier, :records
+     attr_reader :identifier, :records
 
       def <<(record)
         @records << record
       end
+
 
       def initialize(identifier: nil)
         @identifier = identifier

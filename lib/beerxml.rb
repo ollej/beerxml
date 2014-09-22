@@ -1,9 +1,13 @@
 module NRB
   module BeerXML
 
-    autoload :RecordSet, 'beerxml/record_set'
-    autoload :Parser,    'beerxml/parser'
-    autoload :Schema,    'beerxml/schema'
+    autoload :Hop,         'beerxml/hop'
+    autoload :Fermentable, 'beerxml/fermentable'
+    autoload :Parser,      'beerxml/parser'
+    autoload :Record,      'beerxml/record'
+    autoload :RecordSet,   'beerxml/record_set'
+    autoload :RecordValidators, 'beerxml/record_validators'
+    autoload :Schema,      'beerxml/schema'
 
     class << self
 

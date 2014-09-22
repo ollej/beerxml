@@ -1,37 +1,40 @@
 require 'nokogiri'
+
 module NRB
   module BeerXML
     class Parser
       attr_reader :reader
 
-      def initialize(reader: Nokogiri::XML, results_object: nil, schema: BeerXML.schema)
+      def initialize(reader: Nokogiri::XML, schema: BeerXML.schema)
         @reader = reader
-        @results_object = results_object
         @schema = schema
       end
 
 
       def parse(entry)
         case entry
+        when IO
+          parse_xml entry
         when String
-          parse_file(file: entry)
+          parse_path(file: entry)
         else
           raise ArgumentError "Don't know how to parse a #{entry.class}"
         end
+        self
       end
 
 
-      def parse_file(file: nil)
+      def parse_path(file: nil)
+        f = File.open(file)
         doc = parse_xml(file)
+        f.close
+        doc
       end
 
     private
 
-      def parse_xml(file)
-        f = File.open(file)
-        doc = reader.parse(f)
-        f.close
-        doc
+      def parse_xml(stream)
+        reader.parse(stream)
       end
 
     end
