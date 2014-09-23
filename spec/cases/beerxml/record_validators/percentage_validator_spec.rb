@@ -1,15 +1,25 @@
 require 'beerxml/record_validators/percentage_validator'
 module NRB
   module Fake
-    class FakePercentageObject
+    class FakePercentage
       include ActiveModel::Model
       attr_accessor :percentage
+    end
+    class NoMaxFakePercentage < FakePercentage
+      validates :percentage, percentage: { allow_over_100: true }
+    end
+    class NoMinFakePercentage < FakePercentage
+      validates :percentage, percentage: { allow_negative: true }
+    end
+    class VanillaFakePercentage < FakePercentage
       validates :percentage, percentage: true
     end
   end
 end
 
 describe NRB::BeerXML::RecordValidators::PercentageValidator do
+
+  let(:nan) { :a }
 
   shared_examples_for :a_borked_record do
 
@@ -25,28 +35,64 @@ describe NRB::BeerXML::RecordValidators::PercentageValidator do
   end
 
 
-  let(:record) { NRB::Fake::FakePercentageObject.new percentage: percentage }
+  shared_examples_for :rejects_nan do
+    let(:percentage) { nan }
+    it_behaves_like :a_borked_record
+  end
 
-  context 'percentage between 0 & 100' do
-    let(:percentage) { 99 }
+
+  shared_examples_for :goldilocks do
+    let(:percentage) { okay }
     it 'is valid' do
       expect(record).to be_valid
     end
   end
 
-  context 'non numeric percentage' do
-    let(:percentage) { :a }
+
+  shared_examples_for :rejects_large do
+    let(:percentage) { too_big }
     it_behaves_like :a_borked_record
   end
 
-  context 'percentage over 100' do
-    let(:percentage) { 101 }
+
+  shared_examples_for :rejects_small do
+    let(:percentage) { too_small }
     it_behaves_like :a_borked_record
   end
 
-  context 'negative percentage' do
-    let(:percentage) { -1 }
-    it_behaves_like :a_borked_record
+
+  context 'a vanilla percentage validator' do
+    let(:okay) { 88 }
+    let(:record) { NRB::Fake::VanillaFakePercentage.new percentage: percentage }
+    let(:too_big) { 101 }
+    let(:too_small) { -1 }
+
+    it_behaves_like :goldilocks
+    it_behaves_like :rejects_large
+    it_behaves_like :rejects_nan
+    it_behaves_like :rejects_small
+  end
+
+
+  context 'with no maximum' do
+    let(:okay) { 1000 }
+    let(:record) { NRB::Fake::NoMaxFakePercentage.new percentage: percentage }
+    let(:too_small) { -1 }
+
+    it_behaves_like :goldilocks
+    it_behaves_like :rejects_small
+    it_behaves_like :rejects_nan
+  end
+
+
+  context 'with no minimum' do
+    let(:okay) { -10 }
+    let(:record) { NRB::Fake::NoMinFakePercentage.new percentage: percentage }
+    let(:too_big) { 101 }
+
+    it_behaves_like :goldilocks
+    it_behaves_like :rejects_large
+    it_behaves_like :rejects_nan
   end
 
 end
