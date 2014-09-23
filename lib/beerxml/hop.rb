@@ -19,7 +19,7 @@ module NRB
       attr_accessor :use            # list       required
 
       validates :alpha, presence: true, percentage: true
-      validates :amount, presence: true, numericality: true
+      validates :amount, presence: true, numericality: { greater_than_or_equal_to: 0 }
       validates :beta, percentage: true
       validates :caryophyllene, percentage: true
       validates :cohumulone, percentage: true

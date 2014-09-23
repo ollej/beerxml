@@ -11,5 +11,5 @@ module NRB; module BeerXML;
     end
   end
 end; end
+defined?(BooleanValidator) || BooleanValidator = NRB::BeerXML::RecordValidators::BooleanValidator
 
-defined?(BooleanValidator) || BooleanValidator = NRB::BeerXML::RecordValidators::BooleanValidator # Hack

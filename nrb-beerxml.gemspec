@@ -15,35 +15,54 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>=2'
 
   s.files = [
-                 'README.md',
-                 'LICENSE',
-                 'lib/beerxml.rb',
-                 'lib/beerxml/hop.rb',
-                 'lib/beerxml/parser.rb',
-                 'lib/beerxml/record.rb',
-                 'lib/beerxml/record_set.rb',
-                 'lib/beerxml/schema.rb',
-                 'lib/beerxml/version.rb',
-                 'schema/fermentable.yml',
-                 'schema/hop.yml',
-                 'schema/misc.yml',
-                 'schema/record_sets.yml',
-                 'schema/yeast.yml',
-               ]
+              'README.md',
+              'LICENSE',
+              'lib/beerxml.rb',
+              'lib/beerxml/equipment.rb',
+              'lib/beerxml/fermentable.rb',
+              'lib/beerxml/hop.rb',
+              'lib/beerxml/mash_profile.rb',
+              'lib/beerxml/mash_step.rb',
+              'lib/beerxml/misc.rb',
+              'lib/beerxml/parser.rb',
+              'lib/beerxml/recipe.rb',
+              'lib/beerxml/record.rb',
+              'lib/beerxml/record_set.rb',
+              'lib/beerxml/record_validators.rb',
+              'lib/beerxml/record_validators/boolean_validator.rb',
+              'lib/beerxml/record_validators/percentage_validator.rb',
+              'lib/beerxml/style.rb',
+              'lib/beerxml/version.rb',
+              'lib/beerxml/water.rb',
+              'lib/beerxml/yeast.rb'
+            ]
 
   s.test_files = [
-                      'spec/spec_helper.rb',
-                      'spec/cases/beerxml/parser_spec.rb',
-                      'spec/cases/beerxml/schema_spec.rb',
-                      'spec/cases/beerxml/version_spec.rb',
-                      'spec/fixtures/recipes.xml'
-                    ]
+                   'spec/cases/beerxml/equipment_spec.rb',
+                   'spec/cases/beerxml/fermentable_spec.rb',
+                   'spec/cases/beerxml/hop_spec.rb',
+                   'spec/cases/beerxml/mash_profile_spec.rb',
+                   'spec/cases/beerxml/mash_step_spec.rb',
+                   'spec/cases/beerxml/misc_spec.rb',
+                   'spec/cases/beerxml/parser_spec.rb',
+                   'spec/cases/beerxml/recipe_spec.rb',
+                   'spec/cases/beerxml/record_set_spec.rb',
+                   'spec/cases/beerxml/record_spec.rb',
+                   'spec/cases/beerxml/record_validators/boolean_validator_spec.rb',
+                   'spec/cases/beerxml/record_validators/percentage_validator_spec.rb',
+                   'spec/cases/beerxml/style_spec.rb',
+                   'spec/cases/beerxml/version_spec.rb',
+                   'spec/cases/beerxml/water_spec.rb',
+                   'spec/cases/beerxml/yeast_spec.rb',
+                   'spec/cases/beerxml_spec.rb',
+                   'spec/fixtures/recipes.xml',
+                   'spec/spec_helper.rb',
+                 ]
 
   s.require_paths = ["lib"]
 
   s.add_dependency 'activemodel'
   s.add_dependency 'nokogiri'
-  s.add_dependency 'ruby-units'
 
   s.add_development_dependency "bundler"
   s.add_development_dependency "rake"
