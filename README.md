@@ -1,5 +1,7 @@
 # NRB::Beerxml
 
+[![Code Climate](https://codeclimate.com/github/NewRepublicBrewing/beerxml/badges/gpa.svg)](https://codeclimate.com/github/NewRepublicBrewing/beerxml)
+
 A BeerXML parser
 
 ## Installation
