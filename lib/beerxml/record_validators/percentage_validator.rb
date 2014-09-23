@@ -17,7 +17,7 @@ module NRB; module BeerXML;
 
 
       def less_than_max(value)
-        options[:allow_over_100] ? true : value <= max
+        options[:give_110] ? true : value <= max
       end
 
 

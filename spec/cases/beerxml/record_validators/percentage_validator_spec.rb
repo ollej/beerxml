@@ -6,7 +6,7 @@ module NRB
       attr_accessor :percentage
     end
     class NoMaxFakePercentage < FakePercentage
-      validates :percentage, percentage: { allow_over_100: true }
+      validates :percentage, percentage: { give_110: true }
     end
     class NoMinFakePercentage < FakePercentage
       validates :percentage, percentage: { allow_negative: true }
