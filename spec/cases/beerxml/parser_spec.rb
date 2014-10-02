@@ -22,7 +22,7 @@ describe NRB::BeerXML::Parser do
 
 
     it 'returns a NRB::BeerXML::Parser' do
-      expect( subject.parse fixture_path ).to be_a(NRB::BeerXML::Parser)
+      expect( subject.parse fixture_path ).to be_a(NRB::BeerXML::RecordSet)
     end
 
   end

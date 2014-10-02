@@ -18,10 +18,11 @@ Gem::Specification.new do |s|
               'README.md',
               'LICENSE',
               'lib/beerxml.rb',
+              'lib/beerxml/builder.rb',
               'lib/beerxml/equipment.rb',
               'lib/beerxml/fermentable.rb',
               'lib/beerxml/hop.rb',
-              'lib/beerxml/mash_profile.rb',
+              'lib/beerxml/mash.rb',
               'lib/beerxml/mash_step.rb',
               'lib/beerxml/misc.rb',
               'lib/beerxml/parser.rb',
@@ -38,10 +39,11 @@ Gem::Specification.new do |s|
             ]
 
   s.test_files = [
+                   'spec/cases/beerxml/builder_spec.rb',
                    'spec/cases/beerxml/equipment_spec.rb',
                    'spec/cases/beerxml/fermentable_spec.rb',
                    'spec/cases/beerxml/hop_spec.rb',
-                   'spec/cases/beerxml/mash_profile_spec.rb',
+                   'spec/cases/beerxml/mash_spec.rb',
                    'spec/cases/beerxml/mash_step_spec.rb',
                    'spec/cases/beerxml/misc_spec.rb',
                    'spec/cases/beerxml/parser_spec.rb',
@@ -55,8 +57,11 @@ Gem::Specification.new do |s|
                    'spec/cases/beerxml/water_spec.rb',
                    'spec/cases/beerxml/yeast_spec.rb',
                    'spec/cases/beerxml_spec.rb',
+                   'spec/fixtures/equipment.xml',
                    'spec/fixtures/recipes.xml',
-                   'spec/spec_helper.rb',
+                   'spec/shared/active_model_lint.rb',
+                   'spec/shared/record_typing.rb',
+                   'spec/spec_helper.rb'
                  ]
 
   s.require_paths = ["lib"]

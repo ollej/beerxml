@@ -1,10 +1,11 @@
 module NRB
   module BeerXML
 
-    autoload :Hop,              'beerxml/hop'
+    autoload :Builder,          'beerxml/builder'
     autoload :Equipment,        'beerxml/equipment'
     autoload :Fermentable,      'beerxml/fermentable'
-    autoload :MashProfile,      'beerxml/mash_profile'
+    autoload :Hop,              'beerxml/hop'
+    autoload :Mash,             'beerxml/mash'
     autoload :MashStep,         'beerxml/mash_step'
     autoload :Misc,             'beerxml/misc'
     autoload :Parser,           'beerxml/parser'
@@ -18,3 +19,5 @@ module NRB
 
   end
 end
+
+defined?(BeerXML) || BeerXML = NRB::BeerXML

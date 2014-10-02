@@ -1,3 +1,4 @@
+require 'active_model'
 module NRB; module BeerXML;
   module RecordValidators
     class BooleanValidator < ActiveModel::Validations::InclusionValidator

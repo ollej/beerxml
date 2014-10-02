@@ -1,4 +1,8 @@
+require 'shared/active_model_lint'
+
 describe NRB::BeerXML::Style do
+
+  it_behaves_like :ActiveModel
 
   it { should validate_presence_of :category }
   it { should validate_presence_of :category_number }

@@ -1,4 +1,8 @@
+require 'shared/active_model_lint'
+
 describe NRB::BeerXML::Fermentable do
+
+  it_behaves_like :ActiveModel
 
   it { should validate_presence_of :amount }
   it { should validate_presence_of :color }

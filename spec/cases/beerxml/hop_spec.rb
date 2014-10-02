@@ -1,4 +1,8 @@
+require 'shared/active_model_lint'
+
 describe NRB::BeerXML::Hop do
+
+  it_behaves_like :ActiveModel
 
   it { should validate_presence_of :alpha }
   it { should validate_presence_of :amount }

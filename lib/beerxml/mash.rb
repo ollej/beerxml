@@ -1,7 +1,7 @@
 require 'beerxml/record_validators/boolean_validator'
 module NRB
   module BeerXML
-    class MashProfile < Record
+    class Mash < Record
 
       attr_accessor :equip_adjust      # boolean
       attr_accessor :grain_temp        # temperature required
@@ -27,7 +27,7 @@ module NRB
     private
 
       def initialize_mash_steps
-        self.mash_steps ||= []
+        self.mash_steps ||= RecordSet.new(record_type: :mash_step)
       end
 
     end

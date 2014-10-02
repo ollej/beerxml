@@ -1,4 +1,7 @@
-describe NRB::BeerXML::MashProfile do
+require 'shared/active_model_lint'
+describe NRB::BeerXML::Mash do
+
+  it_behaves_like :ActiveModel
 
   it { should validate_presence_of :grain_temp }
   it { should validate_presence_of :mash_steps }
@@ -12,7 +15,11 @@ describe NRB::BeerXML::MashProfile do
 
 
   it 'should start with empty mash steps' do
-    expect( subject.mash_steps ).to eq([])
+    expect( subject.mash_steps ).to be_a(NRB::BeerXML::RecordSet)
+  end
+
+  it 'mash steps should be a RecordSet of mash_steps' do
+    expect( subject.mash_steps.record_type ).to eq :mash_step
   end
 
 end

@@ -1,4 +1,8 @@
+require 'shared/active_model_lint'
+
 describe NRB::BeerXML::MashStep do
+
+  it_behaves_like :ActiveModel
 
   let(:subject) { described_class.new type: type }
   let(:type) { "Temperature" }
