@@ -26,7 +26,7 @@ Parse a BeerXML file
 ```ruby
 parser = NRB::BeerXML::Parser.new
 parser.parse file_path
-=> #&lt;NRB::BeerXML::Equipment:0x007fbe501e4298 @name="Brew Pot", ...&gt;
+=> #<NRB::BeerXML::Equipment:0x007fbe501e4298 @name="Brew Pot", ...>
 ```
 
 `parse` can handle a `String` pathname or an `IO` containing the BeerXML.
