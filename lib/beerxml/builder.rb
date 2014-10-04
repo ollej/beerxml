@@ -21,7 +21,6 @@ module NRB; module BeerXML
 
   private
 
-
     def record_set?(type)
       self.class.record_sets.include? type
     end
