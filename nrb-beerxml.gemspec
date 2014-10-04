@@ -4,15 +4,26 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'beerxml/version'
 
 Gem::Specification.new do |s|
-  s.name          = "nrb-beerxml"
-  s.version       = NRB::BeerXML::VERSION
-  s.authors       = ["Dean Brundage"]
-  s.email         = ["dean@newrepublicbrewing.com"]
+  s.name          = 'nrb-beerxml'
+  s.version       = NRB::BeerXML.version
+  s.authors       = ['Dean Brundage']
+  s.email         = ['dean@newrepublicbrewing.com']
   s.summary       = 'BeerXML parser'
-  s.description   = 'A BeerXML parser based on the original BeerXML gem'
+  s.description   = 'Parses BeerXML files into ruby objects'
   s.homepage      = ""
   s.license       = "GPL-3"
   s.required_ruby_version = '>=2'
+
+  s.require_paths = ['lib']
+
+  s.add_dependency 'activemodel'
+  s.add_dependency 'nokogiri'
+
+  s.add_development_dependency "bundler"
+  s.add_development_dependency "rake"
+  s.add_development_dependency "guard-rspec"
+  s.add_development_dependency "rspec"
+  s.add_development_dependency "shoulda"
 
   s.files = [
               'README.md',
@@ -64,16 +75,5 @@ Gem::Specification.new do |s|
                    'spec/shared/record_typing.rb',
                    'spec/spec_helper.rb'
                  ]
-
-  s.require_paths = ["lib"]
-
-  s.add_dependency 'activemodel'
-  s.add_dependency 'nokogiri'
-
-  s.add_development_dependency "bundler"
-  s.add_development_dependency "rake"
-  s.add_development_dependency "guard-rspec"
-  s.add_development_dependency "rspec"
-  s.add_development_dependency "shoulda"
 
 end
