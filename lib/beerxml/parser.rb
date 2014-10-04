@@ -2,6 +2,9 @@ require 'nokogiri'
 
 module NRB; module BeerXML
   class Parser
+
+    include Inflector
+
     attr_reader :builder, :reader
 
     def initialize(builder: Builder.new, reader: Nokogiri::XML)
@@ -19,20 +22,24 @@ module NRB; module BeerXML
             else
               raise ArgumentError "Don't know how to parse a #{entry.class}"
             end
-     obj = parse_node doc.root
-puts obj.inspect
-obj
+      parse_node doc.root
     end
 
   private
 
-    def assign_from_xml(object, node)
+    def assign_attribute(object, node)
       return unless object
       return unless attribute_node?(node)
-      meth = guess_assignment_method node
+      meth = guess_attribute_assignment_method node
       if object.respond_to? meth
         object.send meth, attribute_value(node)
       end
+    end
+
+
+    def assign_child_to_parent(parent, child)
+      meth = guess_child_assignment_method parent, child
+      parent.respond_to?(meth) && parent.send(meth, child)
     end
 
 
@@ -46,32 +53,43 @@ obj
     end
 
 
-    def guess_assignment_method(node)
+    def guess_attribute_assignment_method(node)
       node.name.downcase + '='
     end
 
 
-    def guess_class_name(string)
-      string.downcase.capitalize
+    def guess_child_assignment_method(parent, child)
+      # Smelly, needs refactor
+      return :<< if parent.is_a? RecordSet
+      name = if child.is_a? RecordSet
+               "#{child.record_type.to_s}s"
+             else
+               child.class.name.split(/::/).last
+             end
+      underscore(name) + '='
     end
 
 
-    def parse_node(node,parent=nil,counter=-1)
-counter += 1
-#puts counter.to_s + "  " * counter + "#{node.name} children: #{node.children.size}"
+    def guess_class_name(string)
+      camelize string.downcase
+    end
+
+
+    def parse_node(node,parent=nil)
       return unless node
 
       if attribute_node?(node)
-        assign_from_xml parent, node
-        parent
+        assign_attribute parent, node
 
       else
 
         obj = builder.build guess_class_name(node.name)
 
         node.children.each do |child|
-          parse_node child, obj, counter
+          parse_node child, obj
         end
+
+        assign_child_to_parent parent, obj
 
         obj
       end

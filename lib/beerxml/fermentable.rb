@@ -23,11 +23,10 @@ module NRB
       validates :add_after_boil, boolean: true
       validates :amount, presence: true
       validates :color, presence: true
-      validates :type, presence: true
+      validates :type, inclusion: { in: [ "Adjunct", "Dry Extract", "Extract", "Grain", "Sugar" ] }, presence: true
       validates :yield, presence: true
 
       validates :diastatic_power, numericality: { greater_than_or_equal_to: 0 }
-
 
     end
   end

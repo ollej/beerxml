@@ -2,6 +2,7 @@ require 'active_model'
 module NRB
   module BeerXML
     class Record
+      include Inflector
       include ActiveModel::Model
       extend ActiveModel::Callbacks
       extend ActiveModel::Naming
@@ -22,7 +23,7 @@ module NRB
 
 
       def record_type
-        self.class.name.split(/::/).last.downcase.to_sym
+        underscore(self.class.name.split(/::/).last).to_sym
       end
 
 

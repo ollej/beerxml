@@ -5,6 +5,7 @@ module NRB
     autoload :Equipment,        'beerxml/equipment'
     autoload :Fermentable,      'beerxml/fermentable'
     autoload :Hop,              'beerxml/hop'
+    autoload :Inflector,        'beerxml/inflector'
     autoload :Mash,             'beerxml/mash'
     autoload :MashStep,         'beerxml/mash_step'
     autoload :Misc,             'beerxml/misc'

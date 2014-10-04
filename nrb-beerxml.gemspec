@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
               'lib/beerxml/equipment.rb',
               'lib/beerxml/fermentable.rb',
               'lib/beerxml/hop.rb',
+              'lib/beerxml/inflector.rb',
               'lib/beerxml/mash.rb',
               'lib/beerxml/mash_step.rb',
               'lib/beerxml/misc.rb',
