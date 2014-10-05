@@ -47,7 +47,8 @@ Gem::Specification.new do |s|
               'lib/nrb/beerxml/style.rb',
               'lib/nrb/beerxml/version.rb',
               'lib/nrb/beerxml/water.rb',
-              'lib/nrb/beerxml/yeast.rb'
+              'lib/nrb/beerxml/yeast.rb',
+              'nrb-beerxml.gemspec'
             ]
 
   s.test_files = [
