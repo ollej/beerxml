@@ -5,15 +5,18 @@ module NRB; module BeerXML
 
     class InvalidRecordError < RuntimeError
 
-      attr_reader :errors
+      attr_reader :errors, :record
 
-      def initialize(msg="Invalid Record", errors=[])
-        super msg
+      def initialize(record, errors={})
+        super nil
         @errors = errors
+        @record = record
       end
 
       def to_s
-        "#{@mesg} #{errors.messages}"
+        errors.keys.inject("Invalid #{record.class} record\n") do |message,key|
+          message += "#{key}=#{record.send(key)} #{errors.fetch(key)}\n"
+        end
       end
 
     end
@@ -64,9 +67,9 @@ module NRB; module BeerXML
 
 
     def attribute_value(node)
-      value = node.children.first.text
-      return value.to_f if value =~ /^-?[0-9.]+$/
+      value = node.children.first.text.strip
       return value.to_i if value =~ /^-?[0-9]+$/
+      return value.to_f if value =~ /^-?[0-9.]+$/
       return false if value == "FALSE"
       return true if value == "TRUE"
       value
@@ -111,9 +114,7 @@ module NRB; module BeerXML
 
         assign_child_to_parent parent, obj
 
-        if obj.respond_to?(:valid) && ! obj.valid?
-          raise InvalidRecordError.new("Invalid #{obj.class} record", obj.errors)
-        end
+        validate obj
 
         obj
       end
@@ -132,6 +133,13 @@ module NRB; module BeerXML
       reader.parse(stream) do |config|
         config.noblanks
       end
+    end
+
+
+    def validate(obj)
+      return unless obj.respond_to?(:valid?)
+      return if obj.valid?
+      raise InvalidRecordError.new(obj, obj.errors.messages)
     end
 
   end
