@@ -1,5 +1,7 @@
 describe NRB::BeerXML::Parser do
 
+  # Need a few more cases since this is pretty much the heart of the gem
+
   context 'Parsing' do
 
     let(:base_dir) { File.expand_path File.join('..','..','..'), __FILE__ }

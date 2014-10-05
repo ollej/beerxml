@@ -1,3 +1,5 @@
+require 'shared/record_typing'
+
 describe NRB::BeerXML::Misc do
 
   it { should validate_presence_of :amount }
@@ -10,5 +12,10 @@ describe NRB::BeerXML::Misc do
 
   it { should validate_inclusion_of(:type).in_array(["Fining", "Flavor", "Herb", "Other", "Spice", "Water Agent"]) }
   it { should validate_inclusion_of(:use).in_array(%w(Boil Bottling Mash Primary Secondary)) }
+
+  it_behaves_like :record_typing do
+    let(:type) { :misc }
+  end
+
 
 end

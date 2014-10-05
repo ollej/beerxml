@@ -16,7 +16,7 @@ module NRB; module BeerXML
     validates :calcium, numericality: true, presence: true
     validates :chloride, numericality: true, presence: true
     validates :magnesium, numericality: true, presence: true
-    validates :ph, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 14 }
+    validates :ph, numericality: { allow_nil: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 14 }
     validates :sodium, numericality: true, presence: true
     validates :sulfate, numericality: true, presence: true
 

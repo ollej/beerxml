@@ -6,7 +6,22 @@ module NRB; module BeerXML;
       def validate_each(record, attribute, value)
         return unless value
         unless value.is_a?(Numeric) && greater_than_min(value) && less_than_max(value)
-          record.errors[attribute] << 'must be a BeerXML percentage (a number between 0 & 100)'
+
+          message = 'must be a percentage'
+
+          if options[:allow_negative] && options[:give_110]
+
+          elsif options[:allow_negative]
+            message += ' (greater than 0)'
+
+          elsif options[:give_110]
+            message += ' (less than 100)'
+
+          else
+            message += ' (between 0 & 100)'
+          end
+
+          record.errors[attribute] << message
         end
       end
 

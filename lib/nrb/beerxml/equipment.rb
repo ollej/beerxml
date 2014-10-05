@@ -20,17 +20,17 @@ module NRB; module BeerXML
 
     validates :batch_size, numericality: { greater_than_or_equal_to: 0 }, presence: true
     validates :boil_size, numericality: { greater_than_or_equal_to: 0 }, presence: true
-    validates :boil_time, numericality: { greater_than_or_equal_to: 0 }
-    validates :calc_boil_volume, boolean: true
+    validates :boil_time, numericality: { allow_nil:true, greater_than_or_equal_to: 0 }
+    validates :calc_boil_volume, boolean: { allow_nil: true }
     validates :evap_rate, percentage: true
-    validates :hop_utilization, percentage: { give_110: true }
-    validates :lauter_tun_deadspace, numericality: { greater_than_or_equal_to: 0 }
-    validates :top_up_kettle, numericality: { greater_than_or_equal_to: 0 }
-    validates :top_up_water, numericality: { greater_than_or_equal_to: 0 }
-    validates :trub_chiller_loss, numericality: { greater_than_or_equal_to: 0 }
-    validates :tun_specific_heat, numericality: { greater_than_or_equal_to: 0 }
-    validates :tun_volume, numericality: { greater_than_or_equal_to: 0 }
-    validates :tun_weight, numericality: { greater_than_or_equal_to: 0 }
+    validates :hop_utilization, percentage: { allow_nil: true, give_110: true }
+    validates :lauter_tun_deadspace, numericality: { allow_nil: true, greater_than_or_equal_to: 0 }
+    validates :top_up_kettle, numericality: { allow_nil: true, greater_than_or_equal_to: 0 }
+    validates :top_up_water, numericality: { allow_nil: true, greater_than_or_equal_to: 0 }
+    validates :trub_chiller_loss, numericality: { allow_nil: true, greater_than_or_equal_to: 0 }
+    validates :tun_specific_heat, numericality: { allow_nil: true, greater_than_or_equal_to: 0 }
+    validates :tun_volume, numericality: { allow_nil: true, greater_than_or_equal_to: 0 }
+    validates :tun_weight, numericality: { allow_nil: true, greater_than_or_equal_to: 0 }
 
   end
 end; end

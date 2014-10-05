@@ -24,10 +24,10 @@ module NRB; module BeerXML
     attr_accessor :style_letter    # string required
     attr_accessor :type            # list required
 
-    validates :abv_max, numericality: { greater_than_or_equal_to: 0 }
-    validates :abv_min, numericality: { greater_than_or_equal_to: 0 }
-    validates :carb_max, numericality: { greater_than_or_equal_to: 0 }
-    validates :carb_min, numericality: { greater_than_or_equal_to: 0 }
+    validates :abv_max, numericality: { allow_nil: true, greater_than_or_equal_to: 0 }
+    validates :abv_min, numericality: { allow_nil: true, greater_than_or_equal_to: 0 }
+    validates :carb_max, numericality: { allow_nil: true, greater_than_or_equal_to: 0 }
+    validates :carb_min, numericality: { allow_nil: true, greater_than_or_equal_to: 0 }
     validates :category, presence: true
     validates :category_number, presence: true
     validates :color_max, numericality: { greater_than_or_equal_to: 0 }, presence: true

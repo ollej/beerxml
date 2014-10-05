@@ -29,7 +29,7 @@ module NRB; module BeerXML
     def equipment?;    am_a? :equipment; end
     def fermentable?;  am_a? :fermentable; end
     def hop?;          am_a? :hop; end
-    def mash_profile?; am_a? :mash_profile; end
+    def mash?;         am_a? :mash; end
     def mash_step?;    am_a? :mash_step; end
     def misc?;         am_a? :misc; end
     def recipe?;       am_a? :recipe; end

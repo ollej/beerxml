@@ -19,15 +19,15 @@ module NRB; module BeerXML
 
     validates :alpha, presence: true, percentage: true
     validates :amount, presence: true, numericality: { greater_than_or_equal_to: 0 }
-    validates :beta, percentage: true
-    validates :caryophyllene, percentage: true
-    validates :cohumulone, percentage: true
-    validates :form, inclusion: { in: %w(Leaf Pellet Plug) }
-    validates :hsi, percentage: true
-    validates :myrcene, percentage: true
+    validates :beta, percentage: { allow_nil: true }
+    validates :caryophyllene, percentage: { allow_nil: true }
+    validates :cohumulone, percentage: { allow_nil: true }
+    validates :form, inclusion: { allow_nil: true, in: %w(Leaf Pellet Plug) }
+    validates :hsi, percentage: { allow_nil: true }
+    validates :myrcene, percentage: { allow_nil: true }
     validates :time, presence: true,
                      numericality: { greater_than_or_equal_to: 0 }
-    validates :type, inclusion: { in: %w(Aroma Bittering Both) }
+    validates :type, inclusion: { allow_nil: true, in: %w(Aroma Bittering Both) }
 
     validates :use, presence: true,
                     inclusion: { in: [ "Aroma", "Boil", "Dry Hop", "First Wort", "Mash" ] }

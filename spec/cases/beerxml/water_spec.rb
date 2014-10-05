@@ -1,4 +1,5 @@
 require 'shared/active_model_lint'
+require 'shared/record_typing'
 
 describe NRB::BeerXML::Water do
 
@@ -17,9 +18,13 @@ describe NRB::BeerXML::Water do
   it { should validate_numericality_of :calcium }
   it { should validate_numericality_of :chloride }
   it { should validate_numericality_of :magnesium }
-  it { should validate_numericality_of(:ph).is_greater_than_or_equal_to(0).is_less_than_or_equal_to(14) }
+  it { should validate_numericality_of(:ph).is_greater_than_or_equal_to(0).is_less_than_or_equal_to(14).allow_nil }
 
   it { should validate_numericality_of :sodium }
   it { should validate_numericality_of :sulfate }
+
+  it_behaves_like :record_typing do
+    let(:type) { :water }
+  end
 
 end

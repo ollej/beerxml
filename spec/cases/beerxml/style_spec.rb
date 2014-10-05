@@ -1,4 +1,5 @@
 require 'shared/active_model_lint'
+require 'shared/record_typing'
 
 describe NRB::BeerXML::Style do
 
@@ -20,10 +21,10 @@ describe NRB::BeerXML::Style do
 
   it { should validate_inclusion_of(:type).in_array(%w(Ale Cider Lager Mead Mixed Wheat) ) }
 
-  it { should validate_numericality_of(:abv_max).is_greater_than_or_equal_to(0) }
-  it { should validate_numericality_of(:abv_min).is_greater_than_or_equal_to(0) }
-  it { should validate_numericality_of(:carb_max).is_greater_than_or_equal_to(0) }
-  it { should validate_numericality_of(:carb_min).is_greater_than_or_equal_to(0) }
+  it { should validate_numericality_of(:abv_max).is_greater_than_or_equal_to(0).allow_nil }
+  it { should validate_numericality_of(:abv_min).is_greater_than_or_equal_to(0).allow_nil }
+  it { should validate_numericality_of(:carb_max).is_greater_than_or_equal_to(0).allow_nil }
+  it { should validate_numericality_of(:carb_min).is_greater_than_or_equal_to(0).allow_nil }
   it { should validate_numericality_of(:color_max).is_greater_than_or_equal_to(0) }
   it { should validate_numericality_of(:color_min).is_greater_than_or_equal_to(0) }
   it { should validate_numericality_of(:fg_max).is_greater_than_or_equal_to(0) }
@@ -32,5 +33,9 @@ describe NRB::BeerXML::Style do
   it { should validate_numericality_of(:ibu_min).is_greater_than_or_equal_to(0) }
   it { should validate_numericality_of(:og_max).is_greater_than_or_equal_to(0) }
   it { should validate_numericality_of(:og_min).is_greater_than_or_equal_to(0) }
+
+  it_behaves_like :record_typing do
+    let(:type) { :style }
+  end
 
 end

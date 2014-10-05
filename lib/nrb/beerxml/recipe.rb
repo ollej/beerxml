@@ -42,34 +42,34 @@ module NRB; module BeerXML
     attr_accessor :waters              # waters record set required
     attr_accessor :yeasts              # yeasts record set required
 
-    validates :age, numericality: { greater_than_or_equal_to: 0 }
-    validates :age_temp, numericality: true
-    validates :batch_size, numericality: { greater_than_or_equal_to: 0 }, presence: true
-    validates :boil_size, numericality: { greater_than_or_equal_to: 0 }, presence: true
-    validates :boil_time, numericality: { greater_than_or_equal_to: 0 }, presence: true
+    validates :age, numericality: { allow_nil: true, greater_than_or_equal_to: 0 }
+    validates :age_temp, numericality: { allow_nil: true }
+    validates :batch_size, numericality: { allow_nil: true, greater_than_or_equal_to: 0 }, presence: true
+    validates :boil_size, numericality: { allow_nil: true, greater_than_or_equal_to: 0 }, presence: true
+    validates :boil_time, numericality: { allow_nil: true, greater_than_or_equal_to: 0 }, presence: true
     validates :brewer, presence: true
-    validates :carbonation, numericality: { greater_than_or_equal_to: 0 }
-    validates :carbonation_temp, numericality: true
+    validates :carbonation, numericality: { allow_nil: true, greater_than_or_equal_to: 0 }
+    validates :carbonation_temp, numericality: { allow_nil: true }
     validates :equipment, presence: true
-    validates :efficiency, percentage: true, presence: { if: Proc.new { |recipe| recipe.efficiency_required? } }
+    validates :efficiency, percentage: { allow_nil: true }, presence: { if: Proc.new { |recipe| recipe.efficiency_required? } }
     validates :fermentables, presence: true
-    validates :fermentation_stages, numericality: { only_integer: true }
-    validates :fg, numericality: true
-    validates :forced_carbonation, boolean: true
+    validates :fermentation_stages, numericality: { allow_nil: true, only_integer: true }
+    validates :fg, numericality: { allow_nil: true }
+    validates :forced_carbonation, boolean: { allow_nil: true }
     validates :hops, presence: true
-    validates :keg_priming_factor, numericality: true
+    validates :keg_priming_factor, numericality: { allow_nil: true }
     validates :mash, presence: true
     validates :miscs, presence: true
-    validates :og, numericality: true
-    validates :primary_age, numericality: { greater_than_or_equal_to: 0 }
-    validates :primary_temp, numericality: true
-    validates :priming_sugar_equiv, numericality: true
-    validates :secondary_age, numericality: { greater_than_or_equal_to: 0 }
-    validates :secondary_temp, numericality: true
+    validates :og, numericality: { allow_nil: true }
+    validates :primary_age, numericality: { allow_nil: true, greater_than_or_equal_to: 0 }
+    validates :primary_temp, numericality: { allow_nil: true }
+    validates :priming_sugar_equiv, numericality: { allow_nil: true }
+    validates :secondary_age, numericality: { allow_nil: true, greater_than_or_equal_to: 0 }
+    validates :secondary_temp, numericality: { allow_nil: true }
     validates :style, presence: true
-    validates :taste_rating, numericality: true
-    validates :tertiary_age, numericality: { greater_than_or_equal_to: 0 }
-    validates :tertiary_temp, numericality: true
+    validates :taste_rating, numericality: { allow_nil: true }
+    validates :tertiary_age, numericality: { allow_nil: true, greater_than_or_equal_to: 0 }
+    validates :tertiary_temp, numericality: { allow_nil: true }
     validates :type, inclusion: { in: [ "All Grain", "Extract", "Partial Mash" ] }, presence: true
     validates :waters, presence: true
     validates :yeasts, presence: true

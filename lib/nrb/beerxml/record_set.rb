@@ -29,6 +29,11 @@ module NRB; module BeerXML
       @records = []
     end
 
+
+    def record_count
+      @records.size
+    end
+
   private
 
     def valid_record_type?(type)

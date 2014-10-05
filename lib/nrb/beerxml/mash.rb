@@ -14,11 +14,11 @@ module NRB; module BeerXML
 
     validates :grain_temp, numericality: true, presence: true
     validates :mash_steps, presence: true
-    validates :ph, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 14 }
-    validates :sparge_temp, numericality: true
-    validates :tun_specific_heat, numericality: { greater_than_or_equal_to: 0 }
-    validates :tun_temp, numericality: true
-    validates :tun_weight, numericality: { greater_than_or_equal_to: 0 }
+    validates :ph, numericality: { allow_nil: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 14 }
+    validates :sparge_temp, numericality: { allow_nil: true }
+    validates :tun_specific_heat, numericality: { allow_nil: true, greater_than_or_equal_to: 0 }
+    validates :tun_temp, numericality: { allow_nil: true }
+    validates :tun_weight, numericality: { allow_nil: true, greater_than_or_equal_to: 0 }
 
 
     after_initialize :initialize_mash_steps

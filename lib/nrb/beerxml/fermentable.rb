@@ -19,13 +19,13 @@ module NRB; module BeerXML
     attr_accessor :type             # list required
     attr_accessor :yield            # percent required
 
-    validates :add_after_boil, boolean: true
+    validates :add_after_boil, boolean: { allow_nil: true }
     validates :amount, presence: true
     validates :color, presence: true
     validates :type, inclusion: { in: [ "Adjunct", "Dry Extract", "Extract", "Grain", "Sugar" ] }, presence: true
     validates :yield, presence: true
 
-    validates :diastatic_power, numericality: { greater_than_or_equal_to: 0 }
+    validates :diastatic_power, numericality: { allow_nil: true, greater_than_or_equal_to: 0 }
 
   end
 end; end

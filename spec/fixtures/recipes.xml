@@ -265,7 +265,7 @@ Example: Bass Ale</NOTES>
  <COLOR_MIN>6.00000000</COLOR_MIN>
  <COLOR_MAX>12.00000000</COLOR_MAX>
  <CARB_MIN>1.5</CARB_MIN>
- <CARB_MAX>2.4></CARB_MAX>
+ <CARB_MAX>2.4</CARB_MAX>
  <ABV_MAX>5.5</ABV_MAX>
  <ABV_MIN>4.5</ABV_MIN>
  <NOTES>Famous style from Burton-on-Trent.  Stronger body than ordinary bitter, but slightly less bitter.  A balanced, easy drinking beer that is malty and strong but not overbearing. </NOTES>
@@ -602,7 +602,7 @@ Gives &quot;dryness&quot; to a stout or porter -- much more so than regular Roas
  <COLOR_MIN>35.00000000</COLOR_MIN>
  <COLOR_MAX>200.00000000</COLOR_MAX>
  <CARB_MIN>1.6</CARB_MIN>
- <CARB_MAX>2.1></CARB_MAX>
+ <CARB_MAX>2.1</CARB_MAX>
  <ABV_MAX>5.5</ABV_MAX>
  <ABV_MIN>3.0</ABV_MIN>
  <NOTES>Famous Irish Stout (AKA Guiness). Dry roasted almost coffee like flavor.  Irish versions have low starting gravity.  Often mixed with soured, pasturized beer to give a slight acidity as well.</NOTES>
@@ -955,6 +955,21 @@ Use for: Bock, Porter, Marzen, Oktoberfest beers</NOTES>
 </YEASTS>
 
  <WATERS>
+<WATER>
+ <NAME>Burton On Trent, UK</NAME>
+ <VERSION>1</VERSION>
+ <AMOUNT>18.927168</AMOUNT>
+ <CALCIUM>295.0</CALCIUM>
+ <BICARBONATE>300.0</BICARBONATE>
+ <SULFATE>725.0</SULFATE>
+ <CHLORIDE>25.0</CHLORIDE>
+ <SODIUM>55.0</SODIUM>
+ <MAGNESIUM>45.0</MAGNESIUM>
+ <PH>8.0</PH>
+ <NOTES>Distinctive pale ales strongly hopped.  Very hard water accentuates the hops flavor.
+Example: Bass Ale</NOTES>
+ <DISPLAY_AMOUNT>5.00 gal</DISPLAY_AMOUNT>
+</WATER>
 </WATERS>
 
  <STYLE>
@@ -974,7 +989,7 @@ Use for: Bock, Porter, Marzen, Oktoberfest beers</NOTES>
  <COLOR_MIN>30.00000000</COLOR_MIN>
  <COLOR_MAX>60.00000000</COLOR_MAX>
  <CARB_MIN>1.8</CARB_MIN>
- <CARB_MAX>2.5></CARB_MAX>
+ <CARB_MAX>2.5</CARB_MAX>
  <ABV_MAX>6.0</ABV_MAX>
  <ABV_MIN>4.8</ABV_MIN>
  <NOTES>Stronger, darker version of porter with a slight dryness.  Flavor derived from chocolate and black malts, but lacks the strong roasted flavor of a dry stout.</NOTES>
@@ -1256,6 +1271,21 @@ Examples: Belgian White beer, Wit</NOTES>
 </YEASTS>
 
  <WATERS>
+<WATER>
+ <NAME>Burton On Trent, UK</NAME>
+ <VERSION>1</VERSION>
+ <AMOUNT>18.927168</AMOUNT>
+ <CALCIUM>295.0</CALCIUM>
+ <BICARBONATE>300.0</BICARBONATE>
+ <SULFATE>725.0</SULFATE>
+ <CHLORIDE>25.0</CHLORIDE>
+ <SODIUM>55.0</SODIUM>
+ <MAGNESIUM>45.0</MAGNESIUM>
+ <PH>8.0</PH>
+ <NOTES>Distinctive pale ales strongly hopped.  Very hard water accentuates the hops flavor.
+Example: Bass Ale</NOTES>
+ <DISPLAY_AMOUNT>5.00 gal</DISPLAY_AMOUNT>
+</WATER>
 </WATERS>
 
  <STYLE>
@@ -1275,7 +1305,7 @@ Examples: Belgian White beer, Wit</NOTES>
  <COLOR_MIN>2.00000000</COLOR_MIN>
  <COLOR_MAX>4.00000000</COLOR_MAX>
  <CARB_MIN>2.1</CARB_MIN>
- <CARB_MAX>2.7></CARB_MAX>
+ <CARB_MAX>2.7</CARB_MAX>
  <ABV_MAX>5.5</ABV_MAX>
  <ABV_MIN>4.1</ABV_MIN>
  <NOTES>Distinctive Wit or &quot;White&quot; beer spiced with bitter Curacao orange peel and coriander. A distinctive yeast strain provides orange aroma/flavor.</NOTES>

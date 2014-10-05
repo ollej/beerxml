@@ -29,7 +29,7 @@ describe NRB::BeerXML::RecordValidators::PercentageValidator do
 
     it 'tells you why the record is invalid' do
       record.valid?
-      expect(record.errors[:percentage]).to include('must be a BeerXML percentage (a number between 0 & 100)')
+      expect(record.errors[:percentage]).to include(message)
     end
 
   end
@@ -63,6 +63,7 @@ describe NRB::BeerXML::RecordValidators::PercentageValidator do
 
   context 'a vanilla percentage validator' do
     let(:okay) { 88 }
+    let(:message) { 'must be a percentage (between 0 & 100)' }
     let(:record) { NRB::Fake::VanillaFakePercentage.new percentage: percentage }
     let(:too_big) { 101 }
     let(:too_small) { -1 }
@@ -76,6 +77,7 @@ describe NRB::BeerXML::RecordValidators::PercentageValidator do
 
   context 'with no maximum' do
     let(:okay) { 1000 }
+    let(:message) { 'must be a percentage (less than 100)' }
     let(:record) { NRB::Fake::NoMaxFakePercentage.new percentage: percentage }
     let(:too_small) { -1 }
 
@@ -87,6 +89,7 @@ describe NRB::BeerXML::RecordValidators::PercentageValidator do
 
   context 'with no minimum' do
     let(:okay) { -10 }
+    let(:message) { 'must be a percentage (greater than 0)' }
     let(:record) { NRB::Fake::NoMinFakePercentage.new percentage: percentage }
     let(:too_big) { 101 }
 

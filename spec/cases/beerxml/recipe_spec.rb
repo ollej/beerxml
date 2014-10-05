@@ -1,4 +1,5 @@
 require 'shared/active_model_lint'
+require 'shared/record_typing'
 
 describe NRB::BeerXML::Recipe do
 
@@ -42,22 +43,22 @@ describe NRB::BeerXML::Recipe do
 
   it { should validate_inclusion_of(:type).in_array([ "All Grain", "Extract", "Partial Mash" ]) }
 
-  it { should validate_numericality_of(:age).is_greater_than_or_equal_to(0) }
-  it { should validate_numericality_of(:age_temp) }
+  it { should validate_numericality_of(:age).is_greater_than_or_equal_to(0).allow_nil }
+  it { should validate_numericality_of(:age_temp).allow_nil}
   it { should validate_numericality_of(:batch_size).is_greater_than_or_equal_to(0) }
   it { should validate_numericality_of(:boil_size).is_greater_than_or_equal_to(0) }
   it { should validate_numericality_of(:boil_time).is_greater_than_or_equal_to(0) }
-  it { should validate_numericality_of(:carbonation).is_greater_than_or_equal_to(0) }
-  it { should validate_numericality_of(:carbonation_temp) }
-  it { should validate_numericality_of(:fermentation_stages).only_integer }
-  it { should validate_numericality_of(:fg) }
-  it { should validate_numericality_of(:og) }
-  it { should validate_numericality_of(:primary_age).is_greater_than_or_equal_to(0) }
-  it { should validate_numericality_of(:primary_temp) }
-  it { should validate_numericality_of(:secondary_age).is_greater_than_or_equal_to(0) }
-  it { should validate_numericality_of(:secondary_temp) }
-  it { should validate_numericality_of(:tertiary_age).is_greater_than_or_equal_to(0) }
-  it { should validate_numericality_of(:tertiary_temp) }
+  it { should validate_numericality_of(:carbonation).is_greater_than_or_equal_to(0).allow_nil }
+  it { should validate_numericality_of(:carbonation_temp).allow_nil }
+  it { should validate_numericality_of(:fermentation_stages).only_integer.allow_nil }
+  it { should validate_numericality_of(:fg).allow_nil }
+  it { should validate_numericality_of(:og).allow_nil }
+  it { should validate_numericality_of(:primary_age).is_greater_than_or_equal_to(0).allow_nil }
+  it { should validate_numericality_of(:primary_temp).allow_nil }
+  it { should validate_numericality_of(:secondary_age).is_greater_than_or_equal_to(0).allow_nil }
+  it { should validate_numericality_of(:secondary_temp).allow_nil }
+  it { should validate_numericality_of(:tertiary_age).is_greater_than_or_equal_to(0).allow_nil }
+  it { should validate_numericality_of(:tertiary_temp).allow_nil }
 
 
   %i(fermentable hop misc water yeast).each do |record_type|
@@ -93,6 +94,10 @@ describe NRB::BeerXML::Recipe do
     let(:good) { NRB::BeerXML::Style.new }
     let(:record_type) { :style }
     it_behaves_like :restricted_assignment
+  end
+
+  it_behaves_like :record_typing do
+    let(:type) { :recipe }
   end
 
 end

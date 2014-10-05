@@ -3,6 +3,21 @@ require 'nokogiri'
 module NRB; module BeerXML
   class Parser
 
+    class InvalidRecordError < RuntimeError
+
+      attr_reader :errors
+
+      def initialize(msg="Invalid Record", errors=[])
+        super msg
+        @errors = errors
+      end
+
+      def to_s
+        "#{@mesg} #{errors.messages}"
+      end
+
+    end
+
     include Inflector
 
     attr_reader :builder, :reader
@@ -49,7 +64,12 @@ module NRB; module BeerXML
 
 
     def attribute_value(node)
-      node.children.first.text
+      value = node.children.first.text
+      return value.to_f if value =~ /^-?[0-9.]+$/
+      return value.to_i if value =~ /^-?[0-9]+$/
+      return false if value == "FALSE"
+      return true if value == "TRUE"
+      value
     end
 
 
@@ -90,6 +110,10 @@ module NRB; module BeerXML
         end
 
         assign_child_to_parent parent, obj
+
+        if obj.respond_to?(:valid) && ! obj.valid?
+          raise InvalidRecordError.new("Invalid #{obj.class} record", obj.errors)
+        end
 
         obj
       end

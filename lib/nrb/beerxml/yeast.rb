@@ -19,16 +19,16 @@ module NRB; module BeerXML
     attr_accessor :times_cultured   # integer
     attr_accessor :type             # list required
 
-    validates :add_to_secondary, boolean: true
+    validates :add_to_secondary, boolean: { allow_nil: true }
     validates :amount, presence: { greater_than_or_equal_to: 0 }
-    validates :amount_is_weight, boolean: true
-    validates :attenuation, percentage: true
-    validates :flocculation, inclusion: { in: ["High", "Low", "Medium", "Very High" ] }
+    validates :amount_is_weight, boolean: { allow_nil: true }
+    validates :attenuation, percentage: { allow_nil: true }
+    validates :flocculation, inclusion: { allow_nil: true, in: ["High", "Low", "Medium", "Very High" ] }
     validates :form, presence: true, inclusion: { in: %w( Culture Dry Liquid Slant ) }
-    validates :max_reuse, numericality: { greater_than_or_equal_to: 0, only_integer: true }
-    validates :max_temperature, numericality: true
-    validates :min_temperature, numericality: true
-    validates :times_cultured, numericality: { greater_than_or_equal_to: 0, only_integer: true }
+    validates :max_reuse, numericality: { allow_nil: true, greater_than_or_equal_to: 0, only_integer: true }
+    validates :max_temperature, numericality: { allow_nil: true }
+    validates :min_temperature, numericality: { allow_nil: true }
+    validates :times_cultured, numericality: { allow_nil: true, greater_than_or_equal_to: 0, only_integer: true }
     validates :type, presence: true, inclusion: { in: %w(Ale Champagne Lager Wheat Wine) }
 
 

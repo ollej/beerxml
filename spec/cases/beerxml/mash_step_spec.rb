@@ -1,4 +1,5 @@
 require 'shared/active_model_lint'
+require 'shared/record_typing'
 
 describe NRB::BeerXML::MashStep do
 
@@ -13,9 +14,9 @@ describe NRB::BeerXML::MashStep do
 
   it { should validate_inclusion_of(:type).in_array(%w(Decoction Infusion Temperature)) }
 
-  it { should validate_numericality_of(:end_temp) }
-  it { should validate_numericality_of(:infuse_amount) }
-  it { should validate_numericality_of(:ramp_time).is_greater_than_or_equal_to(0) }
+  it { should validate_numericality_of(:end_temp).allow_nil }
+  it { should validate_numericality_of(:infuse_amount).allow_nil }
+  it { should validate_numericality_of(:ramp_time).is_greater_than_or_equal_to(0).allow_nil }
   it { should validate_numericality_of(:step_temp) }
   it { should validate_numericality_of(:step_time).is_greater_than_or_equal_to(0) }
 
@@ -34,6 +35,11 @@ describe NRB::BeerXML::MashStep do
   context "Temperature steps" do
     let(:type) { "Temperature" }
     it { should_not validate_presence_of :infuse_amount }
+  end
+
+
+  it_behaves_like :record_typing do
+    let(:type) { :mash_step }
   end
 
 end

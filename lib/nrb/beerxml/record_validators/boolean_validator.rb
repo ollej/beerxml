@@ -8,7 +8,9 @@ module NRB; module BeerXML;
         end
       end
     private
-      def delimiter; [false, true]; end
+      def delimiter
+        [false, true]
+      end
     end
   end
 end; end
