@@ -70,4 +70,4 @@ defined?(BeerXML) || BeerXML = NRB::BeerXML
 
 ## Contributors
 
-@brundage at the [New Republic Brewing Company](https://github.com/NewRepublicBrewing)
+[@brundage](https://github.com/brundage) at the [New Republic Brewing Company](https://github.com/NewRepublicBrewing)
