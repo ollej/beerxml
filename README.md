@@ -21,18 +21,19 @@ Or install it yourself as:
 
 ## Parse
 
-Parse a BeerXML file
-
 ```ruby
 require `nrb/beerxml`
+
 parser = NRB::BeerXML::Parser.new
+=> #<NRB::BeerXML::Parser:0x007fbe4fb58d70 @builder=#<NRB::BeerXML::Builder:0x007fbe4fb58a00>, @reader=Nokogiri::XML>
+
 parser.parse file_path
 => #<NRB::BeerXML::Equipment:0x007fbe501e4298 @name="Brew Pot", ...>
 ```
 
 `parse` can handle a `String` pathname or an `IO` containing the BeerXML.
 
-### Builder
+#### Builder
 
 The parser uses a builder class to construct `NRB::BeerXML::Record` objects.  If you would rather get back some other class of object (for example a `ActiveRecord` model) just give it your own builder class at initialization.
 
@@ -42,7 +43,7 @@ parser = NRB::BeerXML::Parser.new buider: MyBuilder
 
 Your builder should implement a `build(type)` method which returns a new object of the requested type.  `type` will be an underscored string.
 
-### Reader
+#### Reader
 
 NRB::BeerXML uses Nokogiri by default.  If you want to use another reader, simply pass the class name to the Parser's initializer.
 
