@@ -1,4 +1,4 @@
-require 'beerxml/version'
+require 'nrb/beerxml/version'
 describe NRB::BeerXML do
 
   it 'responds to version' do

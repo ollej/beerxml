@@ -1,5 +1,5 @@
-require 'beerxml/record_validators/boolean_validator'
-require 'beerxml/record_validators/percentage_validator'
+require 'nrb/beerxml/record_validators/boolean_validator'
+require 'nrb/beerxml/record_validators/percentage_validator'
 module NRB; module BeerXML
   class Equipment < Record
 

@@ -1,4 +1,4 @@
-require 'beerxml/record_validators/boolean_validator'
+require 'nrb/beerxml/record_validators/boolean_validator'
 module NRB; module BeerXML
   class Mash < Record
 

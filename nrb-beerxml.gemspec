@@ -1,7 +1,7 @@
 # coding: utf-8
 lib = File.expand_path(File.join('..','lib'), __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'beerxml/version'
+require 'nrb/beerxml/version'
 
 Gem::Specification.new do |s|
   s.name          = 'nrb-beerxml'
@@ -28,26 +28,26 @@ Gem::Specification.new do |s|
   s.files = [
               'README.md',
               'LICENSE',
-              'lib/beerxml.rb',
-              'lib/beerxml/builder.rb',
-              'lib/beerxml/equipment.rb',
-              'lib/beerxml/fermentable.rb',
-              'lib/beerxml/hop.rb',
-              'lib/beerxml/inflector.rb',
-              'lib/beerxml/mash.rb',
-              'lib/beerxml/mash_step.rb',
-              'lib/beerxml/misc.rb',
-              'lib/beerxml/parser.rb',
-              'lib/beerxml/recipe.rb',
-              'lib/beerxml/record.rb',
-              'lib/beerxml/record_set.rb',
-              'lib/beerxml/record_validators.rb',
-              'lib/beerxml/record_validators/boolean_validator.rb',
-              'lib/beerxml/record_validators/percentage_validator.rb',
-              'lib/beerxml/style.rb',
-              'lib/beerxml/version.rb',
-              'lib/beerxml/water.rb',
-              'lib/beerxml/yeast.rb'
+              'lib/nrb/beerxml.rb',
+              'lib/nrb/beerxml/builder.rb',
+              'lib/nrb/beerxml/equipment.rb',
+              'lib/nrb/beerxml/fermentable.rb',
+              'lib/nrb/beerxml/hop.rb',
+              'lib/nrb/beerxml/inflector.rb',
+              'lib/nrb/beerxml/mash.rb',
+              'lib/nrb/beerxml/mash_step.rb',
+              'lib/nrb/beerxml/misc.rb',
+              'lib/nrb/beerxml/parser.rb',
+              'lib/nrb/beerxml/recipe.rb',
+              'lib/nrb/beerxml/record.rb',
+              'lib/nrb/beerxml/record_set.rb',
+              'lib/nrb/beerxml/record_validators.rb',
+              'lib/nrb/beerxml/record_validators/boolean_validator.rb',
+              'lib/nrb/beerxml/record_validators/percentage_validator.rb',
+              'lib/nrb/beerxml/style.rb',
+              'lib/nrb/beerxml/version.rb',
+              'lib/nrb/beerxml/water.rb',
+              'lib/nrb/beerxml/yeast.rb'
             ]
 
   s.test_files = [

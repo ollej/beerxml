@@ -1,4 +1,4 @@
-require 'beerxml/record_validators/percentage_validator'  # hack so "validates percentage:" magic works
+require 'nrb/beerxml/record_validators/percentage_validator'  # hack so "validates percentage:" magic works
 module NRB; module BeerXML
   class Hop < Record
 

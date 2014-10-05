@@ -24,6 +24,7 @@ Or install it yourself as:
 Parse a BeerXML file
 
 ```ruby
+require `nrb/beerxml`
 parser = NRB::BeerXML::Parser.new
 parser.parse file_path
 => #<NRB::BeerXML::Equipment:0x007fbe501e4298 @name="Brew Pot", ...>
@@ -51,6 +52,14 @@ parser = NRB::BeerXML::Parser.new reader: SomeXMLReader
 
 The reader should implement a `parse(stream)` method which returns a document.  The document object should implement `#children`, `#name`, `#root`, `#text` &amp; `#text?`
 
+## Bonus
+
+If `BeerXML` is not in your namespace before `require 'nrb/beerxml'` you can leave off the `NRB` prefix when referencing classes.
+
+```ruby
+defined?(BeerXML) || BeerXML = NRB::BeerXML
+```
+
 ## Contribute
 
 1. [Fork me](https://github.com/NewRepublicBrewing/nrb-beerxml/fork)
@@ -58,3 +67,7 @@ The reader should implement a `parse(stream)` method which returns a document.  
 3. Commit your changes (`git commit -am 'Add some beers'`)
 4. Push to the branch (`git push origin my-new-beer`)
 5. Create a Pull Request
+
+## Contributors
+
+@brundage at the [New Republic Brewing Company](https://github.com/NewRepublicBrewing)

@@ -1,4 +1,4 @@
-require 'beerxml/record_validators/boolean_validator'  # hack so "validates boolean:" magic works
+require 'nrb/beerxml/record_validators/boolean_validator'  # hack so "validates boolean:" magic works
 module NRB; module BeerXML
   class Misc < Record
 

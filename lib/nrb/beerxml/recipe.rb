@@ -1,5 +1,5 @@
-require 'beerxml/record_validators/boolean_validator'  # hack so "validates boolean:" magic works
-require 'beerxml/record_validators/percentage_validator'  # hack so "validates percentag:" magic works
+require 'nrb/beerxml/record_validators/boolean_validator'  # hack so "validates boolean:" magic works
+require 'nrb/beerxml/record_validators/percentage_validator'  # hack so "validates percentag:" magic works
 module NRB; module BeerXML
   class Recipe < Record
 
