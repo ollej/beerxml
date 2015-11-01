@@ -23,9 +23,10 @@ module NRB; module BeerXML
 
     include Inflector
 
-    attr_reader :builder, :reader
+    attr_reader :builder, :reader, :perform_validations
 
-    def initialize(builder: Builder.new, reader: Nokogiri::XML)
+    def initialize(builder: Builder.new, reader: Nokogiri::XML, perform_validations: true)
+      @perform_validations = perform_validations
       @builder = builder
       @reader = reader
     end
@@ -33,7 +34,7 @@ module NRB; module BeerXML
 
     def parse(entry)
       doc = case entry
-            when IO
+            when IO, StringIO
               parse_xml entry
             when String
               parse_path(file: entry)
@@ -114,7 +115,7 @@ module NRB; module BeerXML
 
         assign_child_to_parent parent, obj
 
-        validate obj
+        validate obj if perform_validations
 
         obj
       end
