@@ -13,7 +13,7 @@ module NRB; module BeerXML
       if record_set? type
         RecordSet.new record_type: underscore(type.sub(/s$/,'')).to_sym
       else
-        ::Module.nesting[1].const_get(type).new
+        ::Module.nesting[1].const_get(type, false).new
       end
     rescue NameError
       nil
