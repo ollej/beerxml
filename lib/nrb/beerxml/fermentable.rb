@@ -18,6 +18,7 @@ module NRB; module BeerXML
     attr_accessor :supplier         # text
     attr_accessor :type             # list required
     attr_accessor :yield            # percent required
+    attr_accessor :protein          # percent
 
     validates :add_after_boil, boolean: { allow_nil: true }
     validates :amount, presence: true
