@@ -19,6 +19,7 @@ module NRB; module BeerXML
     attr_accessor :type             # list required
     attr_accessor :yield            # percent required
     attr_accessor :protein          # percent
+    attr_accessor :potential        # float
 
     validates :add_after_boil, boolean: { allow_nil: true }
     validates :amount, presence: true
@@ -26,6 +27,8 @@ module NRB; module BeerXML
     validates :type, inclusion: { in: [ "Adjunct", "Dry Extract", "Extract", "Grain", "Sugar" ] }, presence: true
     validates :yield, presence: true
 
+    validates :protein, numericality: { allow_nil: true, greater_than_or_equal_to: 0 }
+    validates :potential, numericality: { allow_nil: true, greater_than_or_equal_to: 1 }
     validates :diastatic_power, numericality: { allow_nil: true, greater_than_or_equal_to: 0 }
 
   end
