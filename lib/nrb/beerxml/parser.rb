@@ -58,7 +58,15 @@ module NRB; module BeerXML
 
     def assign_child_to_parent(parent, child)
       meth = guess_child_assignment_method parent, child
-      parent.respond_to?(meth) && parent.send(meth, child)
+      if parent.respond_to?(meth)
+        parent.send(meth, child)
+      elsif child.is_a? RecordSet
+        # Fix for BrewPal having Styles as a RecordSet.
+        # Try assigning first child to parent instead.
+        assign_child_to_parent(parent, child.first)
+      else
+        false
+      end
     end
 
 
