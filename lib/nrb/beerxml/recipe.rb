@@ -17,6 +17,8 @@ module NRB; module BeerXML
     attr_accessor :date                # string
     attr_accessor :efficiency          # percentage conditionally required
     attr_reader   :equipment           # equipment record
+    attr_accessor :est_fg              # specific gravity
+    attr_accessor :est_og              # specific gravity
     attr_accessor :fermentables        # fermentables record set required
     attr_accessor :fermentation_stages # integer
     attr_accessor :fg                  # specific gravity
@@ -52,6 +54,8 @@ module NRB; module BeerXML
     validates :carbonation_temp, numericality: { allow_nil: true }
     validates :equipment, presence: true
     validates :efficiency, percentage: { allow_nil: true }, presence: { if: Proc.new { |recipe| recipe.efficiency_required? } }
+    validates :est_fg, numericality: { allow_nil: true }
+    validates :est_og, numericality: { allow_nil: true }
     validates :fermentables, presence: true
     validates :fermentation_stages, numericality: { allow_nil: true, only_integer: true }
     validates :fg, numericality: { allow_nil: true }
@@ -81,7 +85,7 @@ module NRB; module BeerXML
 
 
     def efficiency_required?
-      ["ALl Grain", "Partial Mash"].include?(type)
+      ["All Grain", "Partial Mash"].include?(type)
     end
 
 
