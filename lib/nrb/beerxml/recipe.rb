@@ -5,6 +5,8 @@ module NRB; module BeerXML
 
     after_initialize :set_up_record_sets
 
+    attr_accessor :abv                 # percent, extension
+    attr_accessor :actual_efficiency   # percent, extension
     attr_accessor :age                 # time
     attr_accessor :age_temp            # temperature
     attr_accessor :asst_brewer         # string
@@ -12,18 +14,23 @@ module NRB; module BeerXML
     attr_accessor :boil_size           # volume required
     attr_accessor :boil_time           # time required
     attr_accessor :brewer              # string required
+    attr_accessor :calories            # text, extension
     attr_accessor :carbonation         # float
     attr_accessor :carbonation_temp    # temperature
     attr_accessor :date                # string
     attr_accessor :efficiency          # percentage conditionally required
     attr_reader   :equipment           # equipment record
-    attr_accessor :est_fg              # specific gravity
-    attr_accessor :est_og              # specific gravity
+    attr_accessor :est_fg              # specific gravity, extension
+    attr_accessor :est_og              # specific gravity, extension
+    attr_accessor :est_color           # text, extension
+    attr_accessor :est_abv             # text, extension
     attr_accessor :fermentables        # fermentables record set required
     attr_accessor :fermentation_stages # integer
     attr_accessor :fg                  # specific gravity
     attr_accessor :forced_carbonation  # boolean
     attr_accessor :hops                # hops record set required
+    attr_accessor :ibu                 # text
+    attr_accessor :ibu_method          # text
     attr_accessor :keg_priming_factor  # float
     attr_accessor :mash                # mash profile record required
     attr_accessor :miscs               # miscs record set required
@@ -54,8 +61,6 @@ module NRB; module BeerXML
     validates :carbonation_temp, numericality: { allow_nil: true }
     validates :equipment, presence: true
     validates :efficiency, percentage: { allow_nil: true }, presence: { if: Proc.new { |recipe| recipe.efficiency_required? } }
-    validates :est_fg, numericality: { allow_nil: true }
-    validates :est_og, numericality: { allow_nil: true }
     validates :fermentables, presence: true
     validates :fermentation_stages, numericality: { allow_nil: true, only_integer: true }
     validates :fg, numericality: { allow_nil: true }
