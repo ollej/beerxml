@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rspec"
   s.add_development_dependency "shoulda"
   s.add_development_dependency "test-unit"
+  s.add_development_dependency "ruby_dep", "~> 1.3.1"
 
   s.files = [
               'README.md',
